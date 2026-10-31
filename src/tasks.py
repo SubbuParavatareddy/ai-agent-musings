@@ -66,19 +66,31 @@ def build_bull_task(
 def build_bear_task(
     agent: Agent, idea: str, customer: str, advantage: str, budget: str
 ) -> Task:
-    """🔪 🔨 TODO (Lab 2) — the mirror of the bull task: the strongest case AGAINST.
-
-    Fill in the `description` (what to research to argue the idea will fail) and the
-    `expected_output` (the shape of the bear-case brief). The bull task above is your
-    template — mirror its shape, including how it passes the idea details to the agent.
-    The app stays paused until you replace every "TODO".  See README → Lab 2.
-    """
-    # 🔨 Lab 2: write your own description + expected_output. (Removing every "TODO" unlocks the app.)
-    description = "TODO"
-    expected_output = "TODO"
+    """The mirror of the bull task: build the strongest case that the idea should not move forward."""
+    description = (
+        f"Build the strongest evidence-backed BEAR CASE for this startup idea.\n\n"
+        f"{_idea_block(idea, customer, advantage, budget)}\n\n"
+        f"Use the search and scrape tools to research:\n"
+        f"1. Why customers may not care, including complaints, indifference, or a lack of urgency.\n"
+        f"2. Structural risks: crowded markets, weak differentiation, expensive acquisition costs, or poor retention.\n"
+        f"3. Failed predecessors or adjacent products that struggled or died.\n"
+        f"4. Evidence that the business model is weak, brittle, or dependent on unrealistic assumptions.\n"
+        f"5. Why now is not the right time: regulation, macro headwinds, or changed customer behavior.\n\n"
+        f"Be skeptical but rigorous. Cite every claim with a URL. If you cannot find evidence for something, say so — do not fabricate."
+    )
+    expected_output = (
+        "A structured Markdown brief titled `# 🔪 Bear Case` with these sections:\n"
+        "- **Top Reasons NOT to Pursue** (3-5 bullets, each ending with a source link)\n"
+        "- **Market Signals** (bulleted evidence with URLs)\n"
+        "- **What Could Go Wrong** (structural, economic, and customer risks)\n"
+        "- **Comparable Failures** (companies or categories that show the model has failed before)\n"
+        "- **Why Now Might Be the Wrong Time** (regulatory, macro, or behavioral headwinds)\n"
+        "- **Sources** (numbered list of all URLs)"
+    )
 
     todo_guard(
-        description, expected_output,
+        description,
+        expected_output,
         message=(
             "🔪 Lab 2 isn't finished yet — open src/tasks.py → build_bear_task and write the "
             "description + expected_output (mirror build_bull_task). See README → Lab 2."

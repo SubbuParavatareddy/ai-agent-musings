@@ -23,7 +23,7 @@ def build_crew(
     customer: str = "",
     advantage: str = "",
     budget: str = "",
-    model: str = "gemini/gemini-2.5-flash",
+    model: str = "gemini/gemini-3.8-flash",
     temperature: float = 0.6,
     max_search_results: int = 6,
     step_callback=None,
@@ -40,11 +40,8 @@ def build_crew(
     # 3) 🔨 Lab 3 — Strategist (you build it in src/agents.py; it runs cooler — less random).
     strategist = build_strategist(model, max(0.2, temperature - 0.3))
 
-    # 4) 🔨 TODO (Lab 3) — THE FAN-IN.
-    #    The memo task needs BOTH earlier tasks as its `context`, so the Strategist
-    #    can read what the Optimist and Skeptic found.
-    #    👉 Replace the empty list  []  with  [bull_task, bear_task]  on the next line.
-    memo_context = []  # ← TODO (Lab 3): change [] to [bull_task, bear_task]
+    # 4) THE FAN-IN: the memo task receives both earlier task outputs as context.
+    memo_context = [bull_task, bear_task]
     fan_in_guard(
         memo_context,
         message=(

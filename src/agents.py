@@ -50,17 +50,19 @@ def build_optimist(model: str, temperature: float, max_search_results: int) -> A
 
 
 def build_skeptic(model: str, temperature: float, max_search_results: int) -> Agent:
-    """🔪  🔨 TODO (Lab 2) — the mirror image of the Optimist: find why it FAILS.
-
-    Fill in the role / goal / backstory below in your own words — make this agent
-    hunt for why the idea won't work. Keep the tools and everything else like the
-    Optimist (it also searches the web). The app stays paused until you replace
-    every "TODO".  See README → Lab 2.
-    """
-    # 🔨 Lab 2: write your own role / goal / backstory. (Removing every "TODO" unlocks the app.)
-    role = "TODO"
-    goal = "TODO"
-    backstory = "TODO"
+    """The adversarial research agent: find the strongest evidence that the idea fails."""
+    role = "Serial Founder & Bear Case Builder"
+    goal = (
+        "Find the strongest possible evidence that this startup idea will fail in the market. "
+        "Surface structural risks, customer apathy, failed predecessors, weak unit economics, "
+        "and execution traps. Cite every claim with a URL and explain why the idea is brittle."
+    )
+    backstory = (
+        "You are a skeptical operator who has seen a hundred ideas collapse after a few months of "
+        "enthusiasm. You care less about hype and more about whether a customer will pay, whether "
+        "the economics work, and whether the founder is building a real wedge instead of a vanity project. "
+        "Your job is to uncover the hidden reasons the idea will die, while staying evidence-based and fair."
+    )
 
     todo_guard(
         role, goal, backstory,
@@ -83,19 +85,18 @@ def build_skeptic(model: str, temperature: float, max_search_results: int) -> Ag
 
 
 def build_strategist(model: str, temperature: float) -> Agent:
-    """🎯  🔨 TODO (Lab 3) — reads BOTH cases and writes the final memo.
-
-    Notice the difference: this agent has NO tools. It doesn't search — it
-    THINKS, using what the other two agents already found. That is the
-    "synthesis" role in a multi-agent system.
-
-    Fill in its role / goal / backstory below in your own words. The app stays
-    paused until you replace every "TODO".  See README → Lab 3.
-    """
-    # 🔨 Lab 3: write your own role / goal / backstory. (Removing every "TODO" unlocks the app.)
-    role = "TODO"
-    goal = "TODO"
-    backstory = "TODO"
+    """The synthesizer: read both sides, weigh the evidence, and make the call."""
+    role = "Founding Partner & Decision Synthesizer"
+    goal = (
+        "Read the bull and bear cases, identify the real risk, and write a short, decisive memo "
+        "that helps the founder choose the next move. Prioritize evidence over vibes and give a clear verdict."
+    )
+    backstory = (
+        "You are a founder-friendly partner who has seen many teams waste time chasing the wrong idea. "
+        "Your strength is not optimism or cynicism alone; it is synthesis. You combine both sides, find the "
+        "single critical assumption, and turn conflicting evidence into a crisp decision. Your memo is meant to "
+        "help a founder move faster, not feel better."
+    )
 
     todo_guard(
         role, goal, backstory,

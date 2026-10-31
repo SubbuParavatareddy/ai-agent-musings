@@ -18,24 +18,24 @@ from src.tools import DuckDuckGoSearchTool
 load_dotenv()
 
 # 👇 Change this question to anything you're curious about.
-QUESTION = "What are the 3 biggest AI agent trends in 2026? Cite your sources."
+QUESTION = "What are the 3 biggest AI agent trends in 2027? Cite your sources."
 
 
 # --- The agent: who it is + what it's for ---
 # 🔨 TODO (Lab 1): make this agent your own — rewrite its role / goal / backstory
 #                  below, then re-run to hear its "voice" change.
 researcher = Agent(
-    role="Research Assistant",
+    role="Staff Research Assistant",
     goal=(
         "Answer the user's question accurately using up-to-date web sources, "
-        "and cite every claim with a URL."
+        "and cite every claim with a URL with brief description."
     ),
     backstory=(
-        "You are a meticulous research assistant who never makes things up. "
+        "You are a meticulous senior research assistant who never makes things up. "
         "When you are unsure, you search the web before answering."
     ),
     tools=[DuckDuckGoSearchTool(max_results=5)],
-    llm=LLM(model="gemini/gemini-3.6-flash", temperature=0.3),
+    llm=LLM(model="gemini/gemini-3.8-flash", temperature=0.3),
     verbose=True,  # so you can WATCH it think and decide to search
 )
 
